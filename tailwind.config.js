@@ -22,6 +22,9 @@ module.exports = {
       white: "#FFFFFF",
       greyLT: "#D9D9D9",
       greyLD: "#8A8A8A",
+      green: "#008000",
+      red1: "	#FF0000",
+      red2: "	#DC143C",
     },
   },
 };

@@ -1,13 +1,21 @@
 import React from "react";
-import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./Pages/home";
-import Inscription from "./Pages/inscription/inscription";
-import Connexion from "./Pages/connexion/connexion";
-import Equipe from "./Pages/equipe/equipe";
-import EquipeAlternance from "./Pages/equipe/equipe_alternance";
+import InscriptionEtudiants from "./Pages/inscription/inscription_etudiants";
+import InscriptionEntreprise from "./Pages/inscription/inscription_entreprise";
+import InscriptionAlumni from "./Pages/inscription/inscription_alumni";
+import ConnexionAlumni from "./Pages/connexion/connexion_alumni";
+import ConnexionEntreprise from "./Pages/connexion/connexion_entreprise";
+import ConnexionEtudiants from "./Pages/connexion/connexion_etudiants";
+import Navbar from "./components/Navbar";
+import FormEtudiants from "./Pages/form/etudiants";
+import FormEntreprise from "./Pages/form/entreprise";
+import CGU from "./Pages/rgpd/CGU";
+import ModifMdpEtu from "./Pages/connexion/Modif_mdp_etu";
+import ModifMdpAlumni from "./Pages/connexion/Modif_mdp_alumni";
+import ModifMdpEntreprise from "./Pages/connexion/Modif_mdp_entreprise";
+import EspaceEtu from "./Pages/espace/espace_etu";
 
 const App = () => {
   return (
@@ -22,33 +30,26 @@ const App = () => {
             </>
           }
         />
-
         <Route
-          path="/equipe"
-          element={
-            <>
-              <Navbar />
-              <Equipe />
-            </>
-          }
+          path="/inscription_etudiants"
+          element={<InscriptionEtudiants />}
         />
-
+        <Route path="/inscription_alumni" element={<InscriptionAlumni />} />
         <Route
-          path="/equipe_alternance"
-          element={
-            <>
-              <Navbar />
-              <EquipeAlternance />
-            </>
-          }
+          path="/inscription_entreprise"
+          element={<InscriptionEntreprise />}
         />
-
-        <Route path="/connexion" element={<Connexion />} />
-        <Route path="/inscription" element={<Inscription />} />
-
-        {/* Ajouter vos autres routes ici */}
+        <Route path="/connexion_entreprise" element={<ConnexionEntreprise />} />
+        <Route path="/connexion_etudiants" element={<ConnexionEtudiants />} />
+        <Route path="/connexion_alumni" element={<ConnexionAlumni />} />
+        <Route path="/form_etudiants" element={<FormEtudiants />} />
+        <Route path="/form_entreprise" element={<FormEntreprise />} />
+        <Route path="/CGU" element={<CGU />} />
+        <Route path="/Modif_mdp_etu" element={<ModifMdpEtu />} />
+        <Route path="/Modif_mdp_alumni" element={<ModifMdpAlumni />} />
+        <Route path="/Modif_mdp_entreprise" element={<ModifMdpEntreprise />} />
+        <Route path="/espace_etu" element={<EspaceEtu />} />
       </Routes>
-
       <Footer />
     </Router>
   );

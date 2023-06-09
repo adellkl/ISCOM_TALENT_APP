@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/ISCOM.png';
 
-
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -30,29 +28,22 @@ const Navbar = () => {
                         </Link>
                     </div>
 
-
-                    <nav
-                        aria-label="Site Nav"
-                        className={`${isMenuOpen ? 'block' : 'hidden'} gap-8 text-sm font-medium md:flex md:items-center`}
-                    >
-                        <Link to="/equipe" className="text-black">
-                            l’équipe stage
-                        </Link>
-                        <Link to="/equipe_alternance" className="text-black">
-                            l’équipe alternance
-                        </Link>
-
-                    </nav>
-
                     <div className="hidden flex-1 items-center justify-end gap-4 sm:flex">
-                        <Link to="/inscription" className="rounded-md bg-red px-5 py-2 text-sm font-medium text-white">
-                            s'inscription
+                        <Link
+                            to="/connexion_entreprise"
+                            className="rounded-md bg-blue px-5 py-2 text-sm font-medium text-white"
+                        >
+                            Connexion entreprises
                         </Link>
-
-                        <Link to="/connexion" className="rounded-md bg-red px-5 py-2 text-sm font-medium text-white">
-                            se connecter
+                        <Link
+                            to="/connexion_etudiants"
+                            className="rounded-md bg-red px-5 py-2 text-sm font-medium text-white"
+                        >
+                            Connexion Iscomiens
                         </Link>
                     </div>
+
+
 
                     <div className="lg:hidden">
                         <button
