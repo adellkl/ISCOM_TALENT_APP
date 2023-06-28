@@ -8,7 +8,7 @@ import InscriptionAlumni from "./Pages/inscription/inscription_alumni";
 import ConnexionAlumni from "./Pages/connexion/connexion_alumni";
 import ConnexionEntreprise from "./Pages/connexion/connexion_entreprise";
 import ConnexionEtudiants from "./Pages/connexion/connexion_etudiants";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import FormEtudiants from "./Pages/form/etudiants";
 import FormEntreprise from "./Pages/form/entreprise";
 import CGU from "./Pages/rgpd/CGU";
@@ -16,6 +16,11 @@ import ModifMdpEtu from "./Pages/connexion/Modif_mdp_etu";
 import ModifMdpAlumni from "./Pages/connexion/Modif_mdp_alumni";
 import ModifMdpEntreprise from "./Pages/connexion/Modif_mdp_entreprise";
 import EspaceEtu from "./Pages/espace/espace_etu";
+import EspaceAlumni from "./Pages/espace/espace_alumni";
+import EspaceEntreprise from "./Pages/espace/espace_entreprise";
+import AccueilEntreprise from "./Pages/accueil/accueil_entreprise";
+import AccueilEtu from "./Pages/accueil/accueil_etu";
+import AccueilAlumni from "./Pages/accueil/accueil_alumni";
 
 const App = () => {
   return (
@@ -25,8 +30,8 @@ const App = () => {
           path="/"
           element={
             <>
-              <Navbar />
               <Home />
+              {/* <Navbar /> */}
             </>
           }
         />
@@ -49,6 +54,11 @@ const App = () => {
         <Route path="/Modif_mdp_alumni" element={<ModifMdpAlumni />} />
         <Route path="/Modif_mdp_entreprise" element={<ModifMdpEntreprise />} />
         <Route path="/espace_etu" element={<EspaceEtu />} />
+        <Route path="/espace_alumni" element={<EspaceAlumni />} />
+        <Route path="/espace_entreprise" element={<EspaceEntreprise />} />
+        <Route path="/accueil_entreprise" element={<AccueilEntreprise />} />
+        <Route path="/accueil_etu" element={<AccueilEtu />} />
+        <Route path="/accueil_alumni" element={<AccueilAlumni />} />
       </Routes>
       <Footer />
     </Router>

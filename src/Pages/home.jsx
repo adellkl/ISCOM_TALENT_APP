@@ -8,8 +8,9 @@ import 'aos/dist/aos.css';
 
 const Home = () => {
   useEffect(() => {
-    AOS.init({ once: true }); // Initialisation de AOS
+    AOS.init({ once: true });
   }, []);
+
 
   return (
     <section className="flex flex-col lg:flex-row mt-16">
@@ -36,25 +37,12 @@ const Home = () => {
               trigger="mouseenter"
               arrow={true}
             >
-              <Link to="Inscription_etudiants" className="bg-red text-white px-4 py-4 rounded lg:px-6 lg:py-3">
+              <Link to="accueil_etu" className="bg-red text-white px-4 py-4 rounded lg:px-6 lg:py-3">
                 ÉTUDIANT(E)
+
               </Link>
             </Tooltip>
           </div>
-
-          <div className="flex flex-col items-center">
-            <Tooltip
-              title="Cliquez ici si vous recherchez un stagiaire, un alternant.e ou un employé.e"
-              position="top"
-              trigger="mouseenter"
-              arrow={true}
-            >
-              <Link to="inscription_entreprise" className="bg-red text-white px-4 py-4 rounded lg:px-6 lg:py-3">
-                ENTREPRISE
-              </Link>
-            </Tooltip>
-          </div>
-
           <div className="flex flex-col items-center"  >
             <Tooltip
               title="Cliquez ici si vous recherchez un stagiaire, un alternant.e ou un employé.e"
@@ -62,11 +50,25 @@ const Home = () => {
               trigger="mouseenter"
               arrow={true}
             >
-              <Link to="inscription_alumni" className="bg-blue text-white px-4 py-4 rounded lg:px-6 lg:py-3">
+              <Link to="accueil_alumni" className="bg-red text-white px-4 py-4 rounded lg:px-6 lg:py-3">
                 ALUMNI ISCOM
               </Link>
             </Tooltip>
           </div>
+          <div className="flex flex-col items-center">
+            <Tooltip
+              title="Cliquez ici si vous recherchez un stagiaire, un alternant.e ou un employé.e"
+              position="top"
+              trigger="mouseenter"
+              arrow={true}
+            >
+              <Link to="accueil_entreprise" className="bg-blue text-white px-4 py-4 rounded lg:px-6 lg:py-3">
+                ENTREPRISE
+              </Link>
+            </Tooltip>
+          </div>
+
+
         </div>
       </div>
     </section>

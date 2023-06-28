@@ -27,7 +27,6 @@ const InscriptionAlumni = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Récupérer les valeurs des champs de formulaire
         const nom = event.target.nom.value;
         const prenom = event.target.prenom.value;
         const email = event.target.email.value;
@@ -35,13 +34,11 @@ const InscriptionAlumni = () => {
         const confirmPassword = event.target.confirmPassword.value;
         const telephone = event.target.telephone.value;
 
-        // Effectuer la validation des données ici
         if (password !== confirmPassword) {
             setError("Les mots de passe ne correspondent pas");
             return;
         }
 
-        // Préparer les données à envoyer au serveur
         const formData = new FormData();
         formData.append("nom", nom);
         formData.append("prenom", prenom);
@@ -52,17 +49,14 @@ const InscriptionAlumni = () => {
             formData.append("logo", logo);
         }
 
-        // Envoyer les données au serveur
         try {
             setLoading(true);
             setError(null);
             const response = await axios.post("http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_alumni.php", formData);
             setLoading(false);
-            // Traiter la réponse du serveur (par exemple, afficher un message de succès)
             console.log(response.data);
         } catch (error) {
             setLoading(false);
-            // Gérer les erreurs de requête (par exemple, afficher un message d'erreur)
             console.log(error.response.data);
             setError("Une erreur s'est produite lors de l'enregistrement des données");
         }
@@ -71,26 +65,26 @@ const InscriptionAlumni = () => {
     return (
         <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 ml-4">
-                <form className="p-8" onSubmit={handleSubmit}>
+                <form className="p-8" onSubmit={handleSubmit} action="http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_alumni.php" method="post">
                     <h1 className="text-3xl font-bold mb-6">Inscription alumni</h1>
                     {error && <p className="text-red-500 mb-4">{error}</p>}
                     <div className="mb-4">
                         <label htmlFor="nom" className="text-black">
                             Nom étudiant.e *
                         </label>
-                        <input type="text" id="nom" name="nom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
+                        <input type="text" id="nom" name="nom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="prenom" className="text-black">
                             Prénom étudiant.e *
                         </label>
-                        <input type="text" id="prenom" name="prenom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
+                        <input type="text" id="prenom" name="prenom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="email" className="text-black">
                             Email ISCOM (prenom.nom@iscom.org) *
                         </label>
-                        <input type="email" id="email" name="email" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
+                        <input type="email" id="email" name="email" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="password" className="text-black">
@@ -102,6 +96,7 @@ const InscriptionAlumni = () => {
                                 id="password"
                                 name="password"
                                 className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+                                required
                             />
                             <span
                                 className="absolute right-3 top-5 cursor-pointer"
@@ -115,13 +110,13 @@ const InscriptionAlumni = () => {
                         <label htmlFor="confirmPassword" className="text-black">
                             Confirmation mot de passe *
                         </label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
+                        <input type="password" id="confirmPassword" name="confirmPassword" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="telephone" className="text-black">
                             Numéro de téléphone *
                         </label>
-                        <input type="tel" id="telephone" name="telephone" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
+                        <input type="tel" id="telephone" name="telephone" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="photo" className="text-black">
@@ -137,7 +132,6 @@ const InscriptionAlumni = () => {
                         {logo && (
                             <p className="mt-4">{logo.name}</p>
                         )}
-
                     </div>
                     <div className="mb-4">
                         <label htmlFor="acceptTerms" className="inline-flex items-center">
@@ -146,6 +140,7 @@ const InscriptionAlumni = () => {
                                 id="acceptTerms"
                                 name="acceptTerms"
                                 className="hidden"
+                                required
                                 onChange={handleAcceptTermsChange}
                             />
                             <span className="checkbox">
@@ -160,7 +155,6 @@ const InscriptionAlumni = () => {
                             <span className="text-black ml-2">
                                 J’accepte les <a href="/CGU" className="text-blue">conditions générales d’utilisation</a>
                             </span>
-
                         </label>
                     </div>
 

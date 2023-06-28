@@ -18,24 +18,22 @@ const ConnexionEtudiants = () => {
                         <h1 className="text-4xl font-bold mb-8">Connexion Etudiants</h1>
                     </center>
                     <div className="mb-6">
-                        <label htmlFor="email" className="text-black text-lg">
-                            Email
-                        </label>
+
                         <input
                             type="email"
+                            placeholder=" Email ISCOM (prenom.nom@iscom.org) "
                             id="email"
                             className="w-full border-gray-300 bg-greyLT border p-4 rounded"
                         />
                     </div>
                     <div className="mb-6">
-                        <label htmlFor="password" className="text-black text-lg">
-                            Mot de passe
-                        </label>
+
                         <div className="relative">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 id="password"
                                 className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+                                placeholder=" Mot de passe "
                             />
                             <span
                                 className="absolute right-3 top-5 cursor-pointer"
@@ -59,6 +57,7 @@ const ConnexionEtudiants = () => {
                         </a>
                     </center>
                 </form>
+
             </div>
 
             <div className="lg:w-1/2 hidden lg:block">

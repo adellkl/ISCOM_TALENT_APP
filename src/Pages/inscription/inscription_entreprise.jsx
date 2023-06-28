@@ -26,7 +26,7 @@ const Inscription_entreprise = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Récupérer les valeurs des champs de formulaire
+
         const nomEntreprise = event.target.nom.value;
         const prenomContact = event.target.prenom.value;
         const email = event.target.email.value;
@@ -34,21 +34,21 @@ const Inscription_entreprise = () => {
         const confirmPassword = event.target.confirmPassword.value;
         const telephone = event.target.telephone.value;
 
-        // Exemple de validation : vérifier si les mots de passe correspondent
+
         if (password !== confirmPassword) {
             setErrorMessage("Les mots de passe ne correspondent pas");
             return;
         }
 
-        // Créer l'objet de données à envoyer
+
         const data = {
-            id: '', // Ajoutez le champ 'id' si nécessaire
+            id: '',
             nom_entreprise: nomEntreprise,
             Nom_prenom_contact: prenomContact,
             email: email,
             Mot_de_passe: password,
             Numéro_tel: telephone,
-            logo: '', // Ajoutez le champ 'logo' si nécessaire
+            logo: '',
         };
 
         // Envoyer les données à un serveur
