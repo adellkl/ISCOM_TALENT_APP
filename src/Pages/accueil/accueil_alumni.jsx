@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const accueil_alumni = () => {
     return (
-        <div className="flex ">
-            <div className="w-2/3">
+        <div className="flex mt-16 ">
+            <div className="lg:w-1/2 flex flex-col justify-center items-center">
                 <div className="p-4">
-                    <h2 className="text-2xl font-bold mb-4">ISCOM TALENT - alumni</h2>
+                    <h2 className="text-4xl font-bold mb-8">ISCOM TALENT - alumni</h2>
                     <p className="mb-4">
-                        Bienvenue sur ISCOM Talent, la plateforme dédiée aux rencontres entre entreprises partenaires et diplômés talentueux de l'ISCOM.
-                        Trouvez des opportunités et dénichez les profils adaptés à vos besoins.
-                    </p>
+                        Bienvenue sur ISCOM Talent, la plateforme dédiée aux <br /> rencontres entre entreprises partenaires et diplômés <br /> talentueux de l'ISCOM. <br />
+                        Trouvez des opportunités et dénichez les profils <br /> adaptés à vos besoins.
+                    </p> <br />
                     <div className="flex flex-wrap gap-16">
                         <div className="flex flex-col items-center" >
 

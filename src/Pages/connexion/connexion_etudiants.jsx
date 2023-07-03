@@ -13,9 +13,9 @@ const ConnexionEtudiants = () => {
     return (
         <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 ml-4">
-                <form className="p-8 mt-64">
+                <form className="  mt-64">
                     <center>
-                        <h1 className="text-4xl font-bold mb-8">Connexion Etudiants</h1>
+                        <h1 className="text-4xl font-bold mb-4">Connexion Etudiants</h1>
                     </center>
                     <div className="mb-6">
 

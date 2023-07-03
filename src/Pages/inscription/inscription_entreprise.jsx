@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 import axios from 'axios';
 import illustration from "../../images/illustration.png";
 
@@ -26,7 +27,6 @@ const Inscription_entreprise = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-
         const nomEntreprise = event.target.nom.value;
         const prenomContact = event.target.prenom.value;
         const email = event.target.email.value;
@@ -34,25 +34,21 @@ const Inscription_entreprise = () => {
         const confirmPassword = event.target.confirmPassword.value;
         const telephone = event.target.telephone.value;
 
-
         if (password !== confirmPassword) {
             setErrorMessage("Les mots de passe ne correspondent pas");
             return;
         }
 
-
-        const data = {
-            id: '',
-            nom_entreprise: nomEntreprise,
-            Nom_prenom_contact: prenomContact,
-            email: email,
-            Mot_de_passe: password,
-            Numéro_tel: telephone,
-            logo: '',
-        };
+        const data = new FormData();
+        data.append('nom', nomEntreprise);
+        data.append('prenom', prenomContact);
+        data.append('email', email);
+        data.append('password', password);
+        data.append('telephone', telephone);
+        data.append('photo', logo);
 
         // Envoyer les données à un serveur
-        axios.post('http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_entreprise.php', data) // Remplacez l'URL par celle de votre API
+        axios.post('http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_entreprise.php', data)
             .then(response => {
                 // Traiter la réponse du serveur ici
                 console.log(response.data);
@@ -158,7 +154,6 @@ const Inscription_entreprise = () => {
                             <span className="text-black ml-2">
                                 J’accepte les <a href="/CGU" className="text-blue">conditions générales d’utilisation</a>
                             </span>
-
                         </label>
                     </div>
 

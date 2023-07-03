@@ -1,9 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  purge: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
-
     colors: {
       gray: {
         100: "#f7fafc",
@@ -16,15 +15,18 @@ module.exports = {
         800: "#2d3748",
         900: "#1a202c",
       },
-      black: " #000000",
+      black: "#000000",
       red: "#A5201E",
       blue: "#006C9B",
       white: "#FFFFFF",
       greyLT: "#D9D9D9",
       greyLD: "#8A8A8A",
       green: "#008000",
-      red1: "	#FF0000",
-      red2: "	#DC143C",
+      red1: "#FF0000",
+      red2: "#DC143C",
     },
+  },
+  variants: {
+    extend: {},
   },
 };
