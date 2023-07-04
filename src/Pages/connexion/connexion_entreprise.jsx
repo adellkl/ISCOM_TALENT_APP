@@ -12,16 +12,16 @@ const ConnexionEntreprise = () => {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="lg:w-1/2 ml-4">
-        <form className="p-8 mt-64">
+      <div className="lg:w-1/2 ml-8">
+        <form className="p-8 mt-48">
           <center>
-            <h1 className="text-4xl font-bold mb-8">Connexion entreprise</h1>
+            <h1 className="text-4xl font-bold mb-12">Connexion entreprise</h1>
           </center>
           <div className="mb-6">
 
             <input
               type="email"
-              placeholder=" Email ISCOM (prenom.nom@iscom.org) "
+              placeholder=" Votre adresse Mail  "
               id="email"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
             />

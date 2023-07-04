@@ -33,11 +33,17 @@ const FormEtudiants = () => {
     const progressBarWidth = `${(currentStep / 10) * 100}%`;
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <div className="lg:w-1/2">
+        <div className=" flex-col items-center justify-center h-screen">
+            <div className="flex flex-col items-center justify-center">
+
                 <a href="/" className="relative">
-                    <img src={image_accueil} alt="Logo ISCOM" className="mx-auto w-64 " />
+
+
+                    <img src={image_accueil} alt="Logo ISCOM" className="mx-auto mt-6 w-48  " />
+
+
                 </a>
+
             </div>
 
 

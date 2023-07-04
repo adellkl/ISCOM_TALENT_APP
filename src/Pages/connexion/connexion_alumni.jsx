@@ -12,30 +12,28 @@ const ConnexionAlumni = () => {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="lg:w-1/2 ml-4">
-        <form className="p-8 mt-64">
+      <div className="lg:w-1/2 ml-8">
+        <form className="p-8 mt-48">
           <center>
-            <h1 className="text-4xl font-bold mb-8">Connexion Alumni</h1>
+            <h1 className="text-4xl font-bold mb-12">Connexion Alumni</h1>
           </center>
           <div className="mb-6">
-            <label htmlFor="email" className="text-black text-lg">
-              Email
-            </label>
+
             <input
               type="email"
+              placeholder=" Votre adresse Mail  "
               id="email"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="text-black text-lg">
-              Mot de passe
-            </label>
+
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+                placeholder=" Mot de passe "
               />
               <span
                 className="absolute right-3 top-5 cursor-pointer"
@@ -50,12 +48,13 @@ const ConnexionAlumni = () => {
             <button
               type="submit"
               className="bg-blue text-white px-6 py-3 rounded-lg"
+
             >
               Se connecter
             </button>
             <br />
             <br />
-            <a href="Modif_mdp_alumni" className="text-blue text-lg ml-2">
+            <a href="/Modif_mdp_entreprise" className="text-blue text-lg ml-2">
               Mot de passe oublié
             </a>
           </center>

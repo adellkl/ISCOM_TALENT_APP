@@ -86,7 +86,7 @@ const Inscription_Etudiants = () => {
     <div className="flex flex-col lg:flex-row">
       <div className="lg:w-1/2 ml-4">
         <form className="p-8" onSubmit={handleSubmit}>
-          <h1 className="text-3xl font-bold mb-6">Inscription étudiants</h1>
+          <h1 className="text-4xl font-bold mb-8 ml-48 ">Inscription étudiants</h1>
           {message && (
             <p className={`text-${message.includes('succès') ? 'green' : 'red1'} mb-4`}>
               {message}

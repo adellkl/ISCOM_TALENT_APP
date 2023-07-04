@@ -12,10 +12,10 @@ const ConnexionEtudiants = () => {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 ml-4">
-                <form className="  mt-64">
+            <div className="lg:w-1/2 ml-8">
+                <form className=" p-8 mt-48">
                     <center>
-                        <h1 className="text-4xl font-bold mb-4">Connexion Etudiants</h1>
+                        <h1 className="text-4xl font-bold mb-12">Connexion Etudiants</h1>
                     </center>
                     <div className="mb-6">
 

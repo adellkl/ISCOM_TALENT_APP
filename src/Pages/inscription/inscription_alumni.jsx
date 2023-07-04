@@ -66,7 +66,7 @@ const InscriptionAlumni = () => {
         <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 ml-4">
                 <form className="p-8" onSubmit={handleSubmit} action="http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_alumni.php" method="post">
-                    <h1 className="text-3xl font-bold mb-6">Inscription alumni</h1>
+                    <h1 className="text-4xl font-bold mb-8 ml-48">Inscription alumni</h1>
                     {error && <p className="text-red-500 mb-4">{error}</p>}
                     <div className="mb-4">
                         <label htmlFor="nom" className="text-black">
