@@ -6,6 +6,7 @@ import illustration from "../../images/connexion_img.png";
 const ConnexionEntreprise = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -44,6 +45,17 @@ const ConnexionEntreprise = () => {
             </div>
           </div>
           <br />
+
+
+          <div>
+            <center>
+              <p>Rester connecté</p>
+
+            </center>
+            <br />
+          </div>
+
+
           <center>
             <button
               type="submit"
@@ -58,6 +70,8 @@ const ConnexionEntreprise = () => {
               Mot de passe oublié
             </a>
           </center>
+
+
         </form>
       </div>
 

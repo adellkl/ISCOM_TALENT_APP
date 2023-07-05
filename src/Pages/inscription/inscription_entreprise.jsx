@@ -66,28 +66,31 @@ const Inscription_entreprise = () => {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 ml-4">
-                <form className="p-8" onSubmit={handleSubmit}>
-                    <h1 className="text-4xl font-bold mb-8 ml-48">Inscription entreprise</h1>
-                    <div className="mb-4">
+            <div className="lg:w-1/2 ml-16">
+                <form className="p-6" onSubmit={handleSubmit}>
+                    <center>
+                        <h1 className="text-4xl font-bold mb-2 ml-6">Inscription entreprise</h1>
+                    </center>
+
+                    <div className="mb-2">
                         <label htmlFor="nom" className="text-black">
                             Nom de l'entreprise *
                         </label>
                         <input type="text" id="nom" name="nom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="prenom" className="text-black">
                             Nom et prénom du contact de l'entreprise *
                         </label>
                         <input type="text" id="prenom" name="prenom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="email" className="text-black">
                             Email de contact *
                         </label>
                         <input type="email" id="email" name="email" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="password" className="text-black">
                             Mot de passe *
                         </label>
@@ -106,19 +109,19 @@ const Inscription_entreprise = () => {
                             </span>
                         </div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="confirmPassword" className="text-black">
                             Confirmation mot de passe *
                         </label>
                         <input type="password" id="confirmPassword" name="confirmPassword" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="telephone" className="text-black">
                             Numéro de téléphone *
                         </label>
                         <input type="tel" id="telephone" name="telephone" className="w-full border-gray-300 bg-greyLT border p-4 rounded" />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="photo" className="text-black">
                             Charger le logo de votre entreprise
                         </label>
@@ -130,10 +133,10 @@ const Inscription_entreprise = () => {
                             </label>
                         </div>
                         {logo && (
-                            <p className="mt-4">{logo.name}</p>
+                            <p className="mt-2">{logo.name}</p>
                         )}
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="acceptTerms" className="inline-flex items-center">
                             <input
                                 type="checkbox"
@@ -167,8 +170,14 @@ const Inscription_entreprise = () => {
                 </form>
             </div>
 
-            <div className="lg:w-1/2 flex items-center justify-center">
-                <img src={illustration} alt="" height={200} width={500} className="mt-16" />
+            <div className="lg:w-1/2 flex items-center justify-center ">
+                <img
+                    src={illustration}
+                    alt=""
+                    height={200}
+                    width={500}
+                    className="mt-2"
+                />
             </div>
         </div>
     );

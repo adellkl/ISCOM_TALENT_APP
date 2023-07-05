@@ -65,7 +65,7 @@ const AccueilEtu = () => {
                                 Connexion
                             </Link>
                         </div>
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center ">
                             <Link to="/inscription_etudiants" className="bg-red text-white px-4 py-4 rounded lg:px-6 lg:py-3">
                                 Inscription
                             </Link>

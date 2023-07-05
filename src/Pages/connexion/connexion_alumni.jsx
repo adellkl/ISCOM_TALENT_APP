@@ -44,6 +44,14 @@ const ConnexionAlumni = () => {
             </div>
           </div>
           <br />
+          <div>
+            <center>
+              <p>Rester connecté</p>
+
+            </center>
+            <br />
+          </div>
+
           <center>
             <button
               type="submit"

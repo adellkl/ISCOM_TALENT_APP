@@ -9,6 +9,12 @@ const Inscription_Etudiants = () => {
   const [logo, setLogo] = useState(null);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [message, setMessage] = useState(null);
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [email, setEmail] = useState("");
+  const [mdp, setMdp] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [telephone, setTelephone] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -26,25 +32,11 @@ const Inscription_Etudiants = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Récupérer les valeurs des champs de formulaire
-    const nom = event.target.elements.nom.value;
-    const prenom = event.target.elements.prenom.value;
-    const email = event.target.elements.email.value;
-    const mdp = event.target.elements.mdp.value;
-    const confirmPassword = event.target.elements.confirmPassword.value;
-    const telephone = event.target.elements.telephone.value;
-    const photo_etudiant = event.target.elements.photo_etudiant.files[0];
-
-    // Vérifier si l'adresse e-mail a l'extension "@iscom.org"
     if (!email.endsWith("@iscom.org")) {
       setMessage("L'adresse e-mail doit avoir l'extension @iscom.org");
       return;
     }
 
-    // Effectuer le traitement des données ici
-    // Vous pouvez valider les données, les envoyer à un serveur, etc.
-
-    // Exemple de validation : vérifier si les mots de passe correspondent
     if (mdp !== confirmPassword) {
       setMessage("Vérifiez que les mots de passe sont bien identiques !");
       return;
@@ -57,7 +49,7 @@ const Inscription_Etudiants = () => {
       formData.append("email", email);
       formData.append("mdp", mdp);
       formData.append("telephone", telephone);
-      formData.append("photo_etudiant", photo_etudiant);
+      formData.append("photo_etudiant", logo);
 
       const response = await axios.post(
         "http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_etudiants.php",
@@ -69,7 +61,7 @@ const Inscription_Etudiants = () => {
         }
       );
 
-      console.log(response.data); // Afficher la réponse du serveur
+      console.log(response.data);
 
       setMessage("L'inscription a été envoyée avec succès !");
     } catch (error) {
@@ -77,22 +69,29 @@ const Inscription_Etudiants = () => {
       setMessage("Une erreur s'est produite lors de l'envoi de l'inscription.");
     }
 
-    // Réinitialiser les valeurs des champs de formulaire
-    event.target.reset();
+
+    setNom("");
+    setPrenom("");
+    setEmail("");
+    setMdp("");
+    setConfirmPassword("");
+    setTelephone("");
     setLogo(null);
   };
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="lg:w-1/2 ml-4">
-        <form className="p-8" onSubmit={handleSubmit}>
-          <h1 className="text-4xl font-bold mb-8 ml-48 ">Inscription étudiants</h1>
+      <div className="lg:w-1/2 ml-16">
+        <form className="p-6" onSubmit={handleSubmit}>
+          <center>
+            <h1 className="text-4xl font-bold mb-2 ml-6">Inscription étudiants</h1>
+          </center>
           {message && (
-            <p className={`text-${message.includes('succès') ? 'green' : 'red1'} mb-4`}>
+            <p className={`text-${message.includes('succès') ? 'green' : 'red'}-500 mb-4`}>
               {message}
             </p>
           )}
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="nom" className="text-black">
               Nom étudiant.e *
             </label>
@@ -101,9 +100,11 @@ const Inscription_Etudiants = () => {
               id="nom"
               name="nom"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+              value={nom}
+              onChange={(e) => setNom(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="prenom" className="text-black">
               Prénom étudiant.e *
             </label>
@@ -112,9 +113,11 @@ const Inscription_Etudiants = () => {
               id="prenom"
               name="prenom"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+              value={prenom}
+              onChange={(e) => setPrenom(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="email" className="text-black">
               Email ISCOM (prenom.nom@iscom.org) *
             </label>
@@ -123,9 +126,11 @@ const Inscription_Etudiants = () => {
               id="email"
               name="email"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="mdp" className="text-black">
               Mot de passe *
             </label>
@@ -135,6 +140,8 @@ const Inscription_Etudiants = () => {
                 id="mdp"
                 name="mdp"
                 className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+                value={mdp}
+                onChange={(e) => setMdp(e.target.value)}
               />
               <span
                 className="absolute right-3 top-5 cursor-pointer"
@@ -144,7 +151,7 @@ const Inscription_Etudiants = () => {
               </span>
             </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="confirmPassword" className="text-black">
               Confirmation mot de passe *
             </label>
@@ -153,9 +160,11 @@ const Inscription_Etudiants = () => {
               id="confirmPassword"
               name="confirmPassword"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="telephone" className="text-black">
               Numéro de téléphone *
             </label>
@@ -164,9 +173,11 @@ const Inscription_Etudiants = () => {
               id="telephone"
               name="telephone"
               className="w-full border-gray-300 bg-greyLT border p-4 rounded"
+              value={telephone}
+              onChange={(e) => setTelephone(e.target.value)}
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="photo_etudiant" className="text-black">
               Chargez votre photo de profil
             </label>
@@ -188,31 +199,21 @@ const Inscription_Etudiants = () => {
             </div>
             {logo && <p className="mt-4">{logo.name}</p>}
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="acceptTerms" className="inline-flex items-center">
               <input
                 type="checkbox"
                 id="acceptTerms"
                 name="acceptTerms"
-                className="hidden"
+                className="form-checkbox h-5 w-5 text-blue-600"
+                checked={acceptTerms}
                 onChange={handleAcceptTermsChange}
               />
-              <span className="checkbox">
-                <input
-                  type="checkbox"
-                  id="acceptTerms"
-                  name="acceptTerms"
-                  className="form-checkbox h-4 w-4 text-blue-500 transition duration-150 ease-in-out"
-                  onChange={handleAcceptTermsChange}
-                />
-              </span>
               <span className="text-black ml-2">
                 J’accepte les <a href="/CGU" className="text-blue">conditions générales d’utilisation</a>
               </span>
-
             </label>
           </div>
-
           <button
             type="submit"
             className="bg-blue text-white px-4 py-2 rounded"
@@ -221,13 +222,13 @@ const Inscription_Etudiants = () => {
           </button>
         </form>
       </div>
-      <div className="lg:w-1/2 flex items-center justify-center">
+      <div className="lg:w-1/2 flex items-center justify-center ">
         <img
           src={illustration}
           alt=""
           height={200}
           width={500}
-          className="mt-16"
+          className="mt-2"
         />
       </div>
     </div>

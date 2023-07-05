@@ -7,12 +7,11 @@ import illustration from "../../images/illustration.png";
 const InscriptionAlumni = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [logo, setLogo] = useState(null);
-    const [acceptTerms, setAcceptTerms] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setShowPassword(prevState => !prevState);
     };
 
     const handleLogoChange = (event) => {
@@ -20,31 +19,22 @@ const InscriptionAlumni = () => {
         setLogo(selectedFile);
     };
 
-    const handleAcceptTermsChange = () => {
-        setAcceptTerms(!acceptTerms);
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const nom = event.target.nom.value;
-        const prenom = event.target.prenom.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmPassword = event.target.confirmPassword.value;
-        const telephone = event.target.telephone.value;
+        const { nom, prenom, email, password, confirmPassword, telephone } = event.target.elements;
 
-        if (password !== confirmPassword) {
+        if (password.value !== confirmPassword.value) {
             setError("Les mots de passe ne correspondent pas");
             return;
         }
 
         const formData = new FormData();
-        formData.append("nom", nom);
-        formData.append("prenom", prenom);
-        formData.append("email", email);
-        formData.append("password", password);
-        formData.append("telephone", telephone);
+        formData.append("nom", nom.value);
+        formData.append("prenom", prenom.value);
+        formData.append("email", email.value);
+        formData.append("password", password.value);
+        formData.append("telephone", telephone.value);
         if (logo) {
             formData.append("logo", logo);
         }
@@ -64,29 +54,31 @@ const InscriptionAlumni = () => {
 
     return (
         <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 ml-4">
-                <form className="p-8" onSubmit={handleSubmit} action="http://localhost:8888/iscom-talent_back/inscription_traitement/inscription_traitement_alumni.php" method="post">
-                    <h1 className="text-4xl font-bold mb-8 ml-48">Inscription alumni</h1>
+            <div className="lg:w-1/2 ml-16">
+                <form className="p-6" onSubmit={handleSubmit}>
+                    <center>
+                        <h1 className="text-4xl font-bold mb-2 ml-6">Inscription Alumni</h1>
+                    </center>
                     {error && <p className="text-red-500 mb-4">{error}</p>}
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="nom" className="text-black">
                             Nom étudiant.e *
                         </label>
                         <input type="text" id="nom" name="nom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="prenom" className="text-black">
                             Prénom étudiant.e *
                         </label>
                         <input type="text" id="prenom" name="prenom" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="email" className="text-black">
                             Email ISCOM (prenom.nom@iscom.org) *
                         </label>
                         <input type="email" id="email" name="email" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="password" className="text-black">
                             Mot de passe *
                         </label>
@@ -106,19 +98,19 @@ const InscriptionAlumni = () => {
                             </span>
                         </div>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="confirmPassword" className="text-black">
                             Confirmation mot de passe *
                         </label>
                         <input type="password" id="confirmPassword" name="confirmPassword" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="telephone" className="text-black">
                             Numéro de téléphone *
                         </label>
                         <input type="tel" id="telephone" name="telephone" className="w-full border-gray-300 bg-greyLT border p-4 rounded" required />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="photo" className="text-black">
                             Chargez votre photo de profil
                         </label>
@@ -133,7 +125,7 @@ const InscriptionAlumni = () => {
                             <p className="mt-4">{logo.name}</p>
                         )}
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-2">
                         <label htmlFor="acceptTerms" className="inline-flex items-center">
                             <input
                                 type="checkbox"
@@ -141,7 +133,6 @@ const InscriptionAlumni = () => {
                                 name="acceptTerms"
                                 className="hidden"
                                 required
-                                onChange={handleAcceptTermsChange}
                             />
                             <span className="checkbox">
                                 <input
@@ -149,7 +140,6 @@ const InscriptionAlumni = () => {
                                     id="acceptTerms"
                                     name="acceptTerms"
                                     className="form-checkbox h-4 w-4 text-blue-500 transition duration-150 ease-in-out"
-                                    onChange={handleAcceptTermsChange}
                                 />
                             </span>
                             <span className="text-black ml-2">
@@ -164,8 +154,14 @@ const InscriptionAlumni = () => {
                 </form>
             </div>
 
-            <div className="lg:w-1/2 flex items-center justify-center">
-                <img src={illustration} alt="" height={200} width={500} className="mt-16" />
+            <div className="lg:w-1/2 flex items-center justify-center ">
+                <img
+                    src={illustration}
+                    alt=""
+                    height={200}
+                    width={500}
+                    className="mt-2"
+                />
             </div>
         </div>
     );

@@ -42,8 +42,16 @@ const ConnexionEtudiants = () => {
                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                             </span>
                         </div>
+                    </div> <br />
+
+                    <div>
+                        <center>
+                            <p>Rester connecté</p>
+
+                        </center>
+                        <br />
                     </div>
-                    <br />
+
                     <center>
                         <button
                             type="submit"

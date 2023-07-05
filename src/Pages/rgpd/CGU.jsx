@@ -2,7 +2,7 @@ import React from 'react';
 
 const CGU = () => {
     return (
-        <div>Page CGV</div>
+        <div>Page CGU</div>
     );
 };
 

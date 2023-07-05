@@ -33,45 +33,33 @@ const FormEtudiants = () => {
     const progressBarWidth = `${(currentStep / 10) * 100}%`;
 
     return (
-        <div className=" flex-col items-center justify-center h-screen">
+        <div className="fixed inset-0 flex-col items-center justify-center overflow-y-auto bg-white">
             <div className="flex flex-col items-center justify-center">
-
                 <a href="/" className="relative">
-
-
-                    <img src={image_accueil} alt="Logo ISCOM" className="mx-auto mt-6 w-48  " />
-
-
+                    <img src={image_accueil} alt="Logo ISCOM" className="mx-auto mt-6 w-48" />
                 </a>
-
             </div>
-
 
             <hr className="my-12 w-3/4 border-gray-300" />
 
             <h1 className="text-center text-4xl font-bold my-3">FORMULAIRE DE RENSEIGNEMENT ÉTUDIANT</h1>
 
             <div className="w-3/4 mx-auto">
-                <h2 className="sr-only">Steps</h2>
+
 
                 {currentStep !== 11 && (
                     <div>
-                        <p className="text-xs font-medium">
-                            {currentStep}/10 - Étapes
-                        </p>
+                        <p className="text-xs font-medium">{currentStep}/10 - Étapes</p>
 
                         <div className="mt-4 overflow-hidden rounded-full bg-gray-200">
-                            <div
-                                className="h-2 rounded-full bg-blue"
-                                style={{ width: progressBarWidth }}
-                            ></div>
+                            <div className="h-2 rounded-full bg-blue" style={{ width: progressBarWidth }}></div>
                         </div>
 
                         <div className="flex justify-between mt-4">
                             {currentStep > 1 && (
                                 <button
                                     onClick={handlePreviousStep}
-                                    className="flex items-center px-2 py-1 space-x-1 text-xs text-grayLD hover:text-blue"
+                                    className="flex items-center px-2   py-1 space-x-1 text-xs text-grayLD hover:text-blue"
                                 >
                                     <svg
                                         className="w-4 h-4 fill-current"
@@ -83,12 +71,11 @@ const FormEtudiants = () => {
                                     <span>Précédent</span>
                                 </button>
                             )}
-
-
                         </div>
                     </div>
                 )}
             </div>
+
 
 
             <div className="w-3/4 mx-auto">
@@ -750,7 +737,11 @@ const FormEtudiants = () => {
                 {currentStep === 9 && (
                     <form className="mt-6" onSubmit={handleSubmit}>
                         <fieldset>
-                            <legend className="text-xl font-bold mb-4">Une petite description qui apparetra sur votre profil :</legend>
+                            <legend className="text-xl font-bold mb-6">Une petite description qui apparetra sur votre profil :</legend>
+
+                            <label for="message" class="block mb-2 text-sm font-medium  ">Description de votre profil :</label>
+                            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm   rounded-lg border border-gray-300  focus:border-blue-500 dark:bg-greyLT  dark:focus:border-blue-500" ></textarea> <br /><br />
+                            <legend className="text-xl font-bold "> Votre CV / portfolio / book</legend>
 
                             <div className="mb-6 mt-6 flex justify-center">
                                 <button
