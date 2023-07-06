@@ -11,12 +11,18 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const isLoaded = localStorage.getItem('isLoaded');
+    if (isLoaded) {
       setIsLoading(false);
-      AOS.init({ once: true });
-    }, 100);
+    } else {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        localStorage.setItem('isLoaded', true);
+        AOS.init({ once: true });
+      }, 4000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
@@ -24,6 +30,7 @@ const Home = () => {
       {isLoading ? (
         <div className="flex items-center justify-center h-screen">
           <img src={loaderImg} alt="Logo de préchargement" className="w-48 h-50" />
+          <h1 className='text-4xl'> Mettez le navigateur en plein écran pour avoir un meilleur rendu. </h1>
         </div>
       ) : (
         <section className="flex flex-col lg:flex-row mt-32">
